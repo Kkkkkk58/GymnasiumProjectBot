@@ -20,13 +20,13 @@ async def scheduled(wait_for):
         print('000')
         news = str(parse())
         text = f"🔔 На сайте опубликована новая запись!\n<b>{news}</b>"
-        with open('latest_news_id', 'rb') as f:
-            latest_news = f.read()
+        f=open('latest_news_id', 'b')
+        latest_news = f.read()
         f.close()
         if latest_news != news:
-            f2 = open('latest_news_id', 'w')
-            f2.write(news)
-            f2.close()
+            f = open('latest_news_id', 'w')
+            f.write(news)
+            f.close()
             subscriptions = db.get_subscriptions()
             for s in subscriptions:
                 await bot.send_message(s[1], text=text, reply_markup=news_keyboard)
