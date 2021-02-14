@@ -20,11 +20,11 @@ async def scheduled(wait_for):
         print('000')
         news = str(parse())
         text = f"🔔 На сайте опубликована новая запись!\n<b>{news}</b>"
-        f = open('latest_news_id')
+        f = open('latest_news_id.txt')
         latest_news = f.read()
         f.close()
         if latest_news != news:
-            f = open('latest_news_id', 'w')
+            f = open('latest_news_id.txt', 'w')
             f.write(news)
             f.close()
             subscriptions = db.get_subscriptions()
