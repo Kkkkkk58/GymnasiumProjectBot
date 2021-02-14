@@ -17,7 +17,6 @@ dp = Dispatcher(bot)
 async def scheduled(wait_for):
     while True:
         await asyncio.sleep(wait_for)
-        print('000')
         news = str(parse())
         text = f"🔔 На сайте опубликована новая запись!\n<b>{news}</b>"
         f = open('latest_news_id.txt')
@@ -35,5 +34,5 @@ async def scheduled(wait_for):
 if __name__ == '__main__':
     from handlers import dp
     loop = asyncio.get_event_loop()
-    loop.create_task(scheduled(10))
+    loop.create_task(scheduled(60))
     executor.start_polling(dp, skip_updates=True)
