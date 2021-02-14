@@ -12,7 +12,7 @@ def get_html(url, params=None):
 def get_content(html):
     soup = BS(html, 'html.parser')
     items = soup.find_all('div', class_='title')
-    latest = items[1].get_text()
+    latest = items[1].get_text().encode('utf-8').strip().decode('utf-8')
     return latest
 
 def parse():
