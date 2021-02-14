@@ -24,9 +24,9 @@ async def scheduled(wait_for):
             latest_news = f.read()
         f.close()
         if latest_news != news:
-            f = open('latest_news_id', 'w')
-            f.write(news)
-            f.close()
+            f2 = open('latest_news_id', 'w')
+            f2.write(news)
+            f2.close()
             subscriptions = db.get_subscriptions()
             for s in subscriptions:
                 await bot.send_message(s[1], text=text, reply_markup=news_keyboard)
