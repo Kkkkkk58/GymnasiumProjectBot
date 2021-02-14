@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 from aiogram.types import CallbackQuery, ParseMode
 from main import bot, dp
 from aiogram import types

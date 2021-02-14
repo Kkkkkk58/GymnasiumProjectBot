@@ -20,7 +20,7 @@ async def scheduled(wait_for):
         print('000')
         news = str(parse())
         text = f"🔔 На сайте опубликована новая запись!\n<b>{news}</b>"
-        f=open('latest_news_id', 'b')
+        f = open('latest_news_id')
         latest_news = f.read()
         f.close()
         if latest_news != news:
